@@ -5,9 +5,10 @@
  - Список посещения хранилища. Если длительность прибывания в хранилища более 60 минут, выставляется флаг "подозрительности".
 
 ### Установка
-- Скачать скрипт с [GitHub](https://github.com/dumbturtle/orm_1).
+- Скачать скрипт с [GitHub](https://github.com/dumbturtle/orm_2).
 
--  В `project/settings.py` в разделе `DATABASES` внести данные для доступа к базе данных.
+- Переименовать `env_template` в `.env`. В файле `.env` необходимо указать настройки для подключения к базе данных. Более подробно смотрите раздел [Настройки](#настройки).
+
 
 - Установить необходимые пакеты: 
      
@@ -16,5 +17,20 @@ $ pip install -r requirements.txt
 ```
 - Запустить:
 ```
-$ python main.py
+$ python manage.py runserver 0.0.0.0:8000
 ``` 
+#### Настройки
+Необходимо указать в файле `.env` параметры подключения к базе данных, секретный ключ для корректной работы Django. Так же в случае необходимости можно включить вывод отладочной информации присвоив значение `True` переменной `DJANGO_DEBUG`.
+
+```
+#Database Settings
+DATABASE_HOST="Your Host"
+DATABASE_PORT="DataBase Port"
+DATABASE_NAME="DataBase Name"
+DATABASE_USER="DataBase Username"
+DATABASE_PASSWORD="DataBase Password"
+
+#Django Settings
+DJANGO_DEBUG=False
+DJANGO_SECRET_KEY="REPLACE_ME"
+```
