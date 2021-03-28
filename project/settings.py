@@ -2,8 +2,11 @@ import os
 import sys
 
 from dotenv import load_dotenv
+from environs import Env
 
 load_dotenv()
+env = Env()
+env.read_env()
 
 TESTING = sys.argv[1:2] == ["test"]
 if TESTING == False:
@@ -30,7 +33,7 @@ INSTALLED_APPS = ["datacenter"]
 
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 
-DEBUG = os.getenv("DJANGO_DEBUG")
+DEBUG = env.bool("DJANGO_DEBUG", default=True)
 
 ROOT_URLCONF = "project.urls"
 
