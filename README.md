@@ -21,6 +21,7 @@ $ python manage.py runserver 0.0.0.0:8000
 ``` 
 #### Настройки
 Необходимо указать в файле `.env` параметры подключения к базе данных, секретный ключ для корректной работы Django. Так же в случае необходимости можно включить вывод отладочной информации присвоив значение `True` переменной `DJANGO_DEBUG`.
+Для переменной `DJANGO_ALLOWED_HOSTS` укажите адрес своего сайта.
 
 ```
 #Database Settings
@@ -33,4 +34,5 @@ DATABASE_PASSWORD="DataBase Password"
 #Django Settings
 DJANGO_DEBUG=False
 DJANGO_SECRET_KEY="REPLACE_ME"
+DJANGO_ALLOWED_HOSTS=localhost,127.0.0.1
 ```
